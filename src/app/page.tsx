@@ -14,7 +14,7 @@ const features = [
     title: "Your scripts, your way, everywhere you need them",
     body:
       "Build out as many pages as you want, drag cards to reorder, pop a page out into its own resizable floating window so your go-to line is always one click away — even across multiple monitors. Cards support full rich text too, so a line copied with custom colors, sizes, or formatting pastes exactly as styled, not as flat plain text. Collapse down to just your favorites whenever you want a cleaner, less cluttered view.",
-    image: "/images/feature-scripts.png",
+    image: "/images/scripts-popout.gif",
     imgClassName: "max-w-md mx-auto",
     tag: "Custom scripts & pages",
   },
