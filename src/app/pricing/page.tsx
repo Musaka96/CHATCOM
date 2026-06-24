@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PRICE_CENTS } from "@/lib/config";
+import CheckoutForm from "@/components/CheckoutForm";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -7,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
+  const priceDisplay = (PRICE_CENTS / 100).toFixed(2).replace(/\.00$/, "");
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
       <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Pricing</span>
@@ -14,14 +18,13 @@ export default function PricingPage() {
         Get C.H.A.T.
       </h1>
       <p className="mt-4 max-w-2xl text-muted">
-        One-time purchase, locked to your machine. Checkout, license key
-        delivery, and email verification are being wired up in the next build
-        phase — this is a layout preview.
+        One-time purchase, locked to your machine. Enter your email, pay
+        through Stripe, and your license key lands in your inbox automatically.
       </p>
 
       <div className="mt-10 rounded-2xl card-border bg-background-soft p-8 text-center">
         <p className="text-sm font-medium text-accent-soft">Lifetime license</p>
-        <p className="mt-2 text-5xl font-bold">$XX</p>
+        <p className="mt-2 text-5xl font-bold">${priceDisplay}</p>
         <p className="mt-1 text-sm text-muted">one-time, one machine</p>
         <ul className="mx-auto mt-6 max-w-xs space-y-2 text-left text-sm text-muted">
           <li>• Full snippet library, unlimited pages & cards</li>
@@ -30,12 +33,7 @@ export default function PricingPage() {
           <li>• CLS Notifier, clock & interval alarm</li>
           <li>• All 4 themes, sound packs, mascot</li>
         </ul>
-        <button
-          disabled
-          className="mt-8 w-full cursor-not-allowed rounded-full bg-accent/50 px-6 py-3 text-sm font-semibold text-white"
-        >
-          Checkout coming online soon
-        </button>
+        <CheckoutForm />
       </div>
     </div>
   );

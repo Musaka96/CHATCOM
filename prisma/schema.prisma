@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LicenseKeyStatus {
+  UNUSED
+  ASSIGNED
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  FULFILLED
+  FAILED
+}
+
+model LicenseKey {
+  id            String           @id @default(cuid())
+  encryptedKey  String
+  status        LicenseKeyStatus @default(UNUSED)
+  assignedAt    DateTime?
+  createdAt     DateTime         @default(now())
+  order         Order?
+}
+
+model Order {
+  id                    String      @id @default(cuid())
+  buyerEmail            String
+  stripeSessionId       String      @unique
+  stripePaymentIntentId String?
+  licenseKeyId          String?     @unique
+  licenseKey            LicenseKey? @relation(fields: [licenseKeyId], references: [id])
+  status                OrderStatus @default(PENDING)
+  createdAt             DateTime    @default(now())
+  updatedAt              DateTime   @updatedAt
+}
