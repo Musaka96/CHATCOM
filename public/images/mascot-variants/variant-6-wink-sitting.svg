@@ -1,0 +1,28 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="120" cy="120" r="110" fill="#8b5cf6" fill-opacity="0.18"/>
+  <!-- crossed legs -->
+  <path d="M70 210 Q120 190 170 210 L160 225 Q120 212 80 225 Z" fill="#34d399"/>
+  <!-- body -->
+  <ellipse cx="120" cy="180" rx="54" ry="40" fill="#f472b6"/>
+  <path d="M80 160 Q120 178 160 160" stroke="#34d399" stroke-width="6" fill="none"/>
+  <!-- laptop on lap, tilted slightly for personality -->
+  <g transform="rotate(-4 120 188)">
+    <rect x="82" y="166" width="76" height="44" rx="7" fill="#241a3d" stroke="#a78bfa" stroke-width="2"/>
+    <rect x="89" y="173" width="62" height="26" rx="3" fill="#facc15" fill-opacity="0.35"/>
+  </g>
+  <!-- head, mid-wink -->
+  <circle cx="120" cy="116" r="46" fill="#f3d6b8"/>
+  <path d="M100 112 Q108 106 116 112" stroke="#1c1530" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="138" cy="113" r="6" fill="#1c1530"/>
+  <path d="M104 134 Q120 146 138 130" stroke="#1c1530" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="92" cy="124" r="7" fill="#f472b6" fill-opacity="0.55"/>
+  <circle cx="148" cy="124" r="7" fill="#f472b6" fill-opacity="0.55"/>
+  <!-- jester hat, one point flopped over -->
+  <path d="M76 74 Q60 50 90 60 Q95 84 76 74 Z" fill="#60a5fa"/>
+  <path d="M120 62 L120 16 L148 56 Z" fill="#facc15"/>
+  <path d="M164 74 Q180 50 150 60 Q145 84 164 74 Z" fill="#34d399"/>
+  <circle cx="90" cy="62" r="6" fill="#facc15"/>
+  <circle cx="120" cy="16" r="6" fill="#60a5fa"/>
+  <circle cx="150" cy="62" r="6" fill="#f472b6"/>
+  <path d="M70 80 Q120 54 170 80 Q170 98 120 98 Q70 98 70 80 Z" fill="#facc15"/>
+</svg>

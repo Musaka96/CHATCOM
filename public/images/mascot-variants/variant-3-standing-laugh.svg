@@ -1,0 +1,29 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="120" cy="120" r="110" fill="#8b5cf6" fill-opacity="0.18"/>
+  <!-- standing body -->
+  <path d="M85 150 Q120 135 155 150 L165 220 Q120 232 75 220 Z" fill="#60a5fa"/>
+  <path d="M85 150 Q120 135 155 150 L150 175 Q120 188 90 175 Z" fill="#f472b6"/>
+  <!-- legs -->
+  <rect x="92" y="200" width="20" height="32" rx="6" fill="#241a3d"/>
+  <rect x="128" y="200" width="20" height="32" rx="6" fill="#241a3d"/>
+  <!-- arms holding laptop up -->
+  <path d="M85 158 Q55 165 60 195" stroke="#f472b6" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <path d="M155 158 Q185 165 180 195" stroke="#60a5fa" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <rect x="78" y="150" width="84" height="48" rx="7" fill="#241a3d" stroke="#a78bfa" stroke-width="2"/>
+  <rect x="86" y="157" width="68" height="28" rx="3" fill="#34d399" fill-opacity="0.4"/>
+  <!-- head laughing -->
+  <circle cx="120" cy="108" r="44" fill="#f3d6b8"/>
+  <path d="M104 96 Q108 90 113 96" stroke="#1c1530" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M127 96 Q132 90 137 96" stroke="#1c1530" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M98 120 Q120 142 142 120 Q140 134 120 138 Q100 134 98 120 Z" fill="#1c1530"/>
+  <circle cx="92" cy="116" r="7" fill="#f472b6" fill-opacity="0.55"/>
+  <circle cx="148" cy="116" r="7" fill="#f472b6" fill-opacity="0.55"/>
+  <!-- jester hat -->
+  <path d="M76 76 L62 30 L98 64 Z" fill="#f472b6"/>
+  <path d="M164 76 L178 30 L142 64 Z" fill="#60a5fa"/>
+  <path d="M120 64 L120 18 L150 60 Z" fill="#facc15"/>
+  <circle cx="62" cy="30" r="6" fill="#facc15"/>
+  <circle cx="178" cy="30" r="6" fill="#f472b6"/>
+  <circle cx="120" cy="18" r="6" fill="#60a5fa"/>
+  <path d="M70 82 Q120 56 170 82 Q170 100 120 100 Q70 100 70 82 Z" fill="#60a5fa"/>
+</svg>
