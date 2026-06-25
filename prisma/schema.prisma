@@ -29,13 +29,12 @@ model LicenseKey {
 }
 
 model Order {
-  id                    String      @id @default(cuid())
-  buyerEmail            String
-  stripeSessionId       String      @unique
-  stripePaymentIntentId String?
-  licenseKeyId          String?     @unique
-  licenseKey            LicenseKey? @relation(fields: [licenseKeyId], references: [id])
-  status                OrderStatus @default(PENDING)
-  createdAt             DateTime    @default(now())
-  updatedAt              DateTime   @updatedAt
+  id                  String      @id @default(cuid())
+  buyerEmail          String
+  paddleTransactionId String?     @unique
+  licenseKeyId        String?     @unique
+  licenseKey          LicenseKey? @relation(fields: [licenseKeyId], references: [id])
+  status              OrderStatus @default(PENDING)
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
 }

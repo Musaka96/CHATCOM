@@ -1,16 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getStripe } from "@/lib/stripe";
 import { prisma } from "@/lib/db";
 import { decryptKey } from "@/lib/crypto";
 import { sendLicenseKeyEmail, sendKeyShortageAlert } from "@/lib/email";
-import type Stripe from "stripe";
+import { verifyPaddleSignature } from "@/lib/paddle";
 
 export const dynamic = "force-dynamic";
 
-async function fulfillOrder(session: Stripe.Checkout.Session) {
-  const existing = await prisma.order.findUnique({ where: { stripeSessionId: session.id } });
+async function fulfillOrder(orderId: string, paddleTransactionId: string) {
+  const existing = await prisma.order.findUnique({ where: { id: orderId } });
   if (!existing) {
-    console.error("webhook: no matching order for session", session.id);
+    console.error("paddle webhook: no matching order for id", orderId);
     return;
   }
   if (existing.status === "FULFILLED") {
@@ -19,7 +18,6 @@ async function fulfillOrder(session: Stripe.Checkout.Session) {
 
   const buyerEmail = existing.buyerEmail;
 
-  // Claim one unused key atomically.
   const claimedKey = await prisma.$transaction(async (tx) => {
     const key = await tx.licenseKey.findFirst({ where: { status: "UNUSED" } });
     if (!key) return null;
@@ -34,8 +32,7 @@ async function fulfillOrder(session: Stripe.Checkout.Session) {
       data: {
         status: "PAID",
         licenseKeyId: key.id,
-        stripePaymentIntentId:
-          typeof session.payment_intent === "string" ? session.payment_intent : undefined,
+        paddleTransactionId,
       },
     });
 
@@ -45,7 +42,7 @@ async function fulfillOrder(session: Stripe.Checkout.Session) {
   if (!claimedKey) {
     await prisma.order.update({
       where: { id: existing.id },
-      data: { status: "FAILED" },
+      data: { status: "FAILED", paddleTransactionId },
     });
     await sendKeyShortageAlert(existing.id, buyerEmail).catch((e) =>
       console.error("failed to send shortage alert", e)
@@ -64,30 +61,36 @@ async function fulfillOrder(session: Stripe.Checkout.Session) {
 }
 
 export async function POST(req: NextRequest) {
-  const signature = req.headers.get("stripe-signature");
-  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-
-  if (!signature || !webhookSecret) {
-    return NextResponse.json({ error: "Missing webhook signature/secret" }, { status: 400 });
-  }
-
+  const signature = req.headers.get("paddle-signature");
   const rawBody = await req.text();
-  const stripe = getStripe();
 
-  let event: Stripe.Event;
-  try {
-    event = stripe.webhooks.constructEvent(rawBody, signature, webhookSecret);
-  } catch (err) {
-    console.error("webhook signature verification failed", err);
+  if (!verifyPaddleSignature(rawBody, signature)) {
+    console.error("paddle webhook: invalid signature");
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
 
-  if (event.type === "checkout.session.completed") {
-    const session = event.data.object as Stripe.Checkout.Session;
+  let event: { event_type?: string; data?: Record<string, unknown> };
+  try {
+    event = JSON.parse(rawBody);
+  } catch {
+    return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
+  }
+
+  if (event.event_type === "transaction.completed") {
+    const data = event.data || {};
+    const customData = (data.custom_data as Record<string, unknown> | null) || {};
+    const orderId = String(customData.orderId || "");
+    const transactionId = String(data.id || "");
+
+    if (!orderId) {
+      console.error("paddle webhook: missing custom_data.orderId");
+      return NextResponse.json({ received: true });
+    }
+
     try {
-      await fulfillOrder(session);
+      await fulfillOrder(orderId, transactionId);
     } catch (err) {
-      console.error("fulfillment error", err);
+      console.error("paddle fulfillment error", err);
       return NextResponse.json({ error: "Fulfillment failed" }, { status: 500 });
     }
   }

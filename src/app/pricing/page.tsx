@@ -18,8 +18,8 @@ export default function PricingPage() {
         Get C.H.A.T.
       </h1>
       <p className="mt-4 max-w-2xl text-muted">
-        One-time purchase, locked to your machine. Enter your email, pay
-        through Stripe, and your license key lands in your inbox automatically.
+        One-time purchase, locked to your machine. Enter your email, complete
+        checkout, and your license key lands in your inbox automatically.
       </p>
 
       <div className="mt-10 rounded-2xl card-border bg-background-soft p-8 text-center">
