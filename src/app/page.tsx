@@ -154,6 +154,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* More to explore */}
+      <section className="border-t border-white/5">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold sm:text-4xl">There's more under the hood</h2>
+            <p className="mt-3 text-muted">
+              The snippets and PPV tracking are just the start — two more
+              built-in tools keep the rest of your shift running smoothly.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            <Link
+              href="/alerts"
+              className="group rounded-2xl card-border bg-background-soft p-6 transition hover:border-accent/40"
+            >
+              <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Alerts</span>
+              <h3 className="mt-2 text-xl font-bold">
+                Never forget to send that &quot;live&quot; PPV
+              </h3>
+              <p className="mt-2 text-sm text-muted">
+                Stackable countdown reminders plus a repeating mass-message
+                alarm, so timed follow-ups never slip through.
+              </p>
+              <span className="mt-4 inline-block text-sm font-semibold text-accent-soft transition group-hover:translate-x-1">
+                See how it works →
+              </span>
+            </Link>
+            <Link
+              href="/scripts"
+              className="group rounded-2xl card-border bg-background-soft p-6 transition hover:border-accent/40"
+            >
+              <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Sharing Scripts</span>
+              <h3 className="mt-2 text-xl font-bold">Organize, pop out, and share your snippet library</h3>
+              <p className="mt-2 text-sm text-muted">
+                Drag cards between pages and windows, then export a single
+                page to share with another chatter without handing over your
+                whole setup.
+              </p>
+              <span className="mt-4 inline-block text-sm font-semibold text-accent-soft transition group-hover:translate-x-1">
+                See how it works →
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Built for chatters */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
@@ -226,52 +272,6 @@ export default function Home() {
                 <p className="mt-3 text-xs text-muted">{name}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* More to explore */}
-      <section className="border-t border-white/5">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">There's more under the hood</h2>
-            <p className="mt-3 text-muted">
-              The snippets and PPV tracking are just the start — two more
-              built-in tools keep the rest of your shift running smoothly.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            <Link
-              href="/alerts"
-              className="group rounded-2xl card-border bg-background-soft p-6 transition hover:border-accent/40"
-            >
-              <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Alerts</span>
-              <h3 className="mt-2 text-xl font-bold">
-                Never forget to send that &quot;live&quot; PPV
-              </h3>
-              <p className="mt-2 text-sm text-muted">
-                Stackable countdown reminders plus a repeating mass-message
-                alarm, so timed follow-ups never slip through.
-              </p>
-              <span className="mt-4 inline-block text-sm font-semibold text-accent-soft transition group-hover:translate-x-1">
-                See how it works →
-              </span>
-            </Link>
-            <Link
-              href="/scripts"
-              className="group rounded-2xl card-border bg-background-soft p-6 transition hover:border-accent/40"
-            >
-              <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Sharing Scripts</span>
-              <h3 className="mt-2 text-xl font-bold">Organize, pop out, and share your snippet library</h3>
-              <p className="mt-2 text-sm text-muted">
-                Drag cards between pages and windows, then export a single
-                page to share with another chatter without handing over your
-                whole setup.
-              </p>
-              <span className="mt-4 inline-block text-sm font-semibold text-accent-soft transition group-hover:translate-x-1">
-                See how it works →
-              </span>
-            </Link>
           </div>
         </div>
       </section>
