@@ -4,8 +4,16 @@ import Link from "next/link";
 const features = [
   {
     title: "Paste it before they notice you paused",
-    body:
-      "A library of your best responses, organized into pages and color-coded cards so every line is exactly where you expect it — no digging through notes under pressure. Click to paste instantly into whatever you're typing in. Ctrl+click and it sends itself. No more re-typing the same line for the hundredth time tonight.",
+    body: (
+      <>
+        A library of your best responses, organized into pages and
+        color-coded cards so every line is exactly where you expect it — no
+        digging through notes under pressure. Click to paste instantly into
+        whatever you&apos;re typing in. <strong className="font-semibold text-foreground">Ctrl+click and it sends itself instantly</strong>{" "}
+        — no Enter key, no second click, message gone. No more re-typing the
+        same line for the hundredth time tonight.
+      </>
+    ),
     image: "/images/feature-snippets.gif",
     imgClassName: "max-w-sm mx-auto",
     tag: "Instant snippet paste",
@@ -73,8 +81,9 @@ export default function Home() {
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted sm:text-lg">
               C.H.A.T. floats over any chat platform and never steals your keyboard
-              focus. Send your best lines in one click, log every PPV the second
-              it sells, and walk away from your shift with a report already done.
+              focus. <strong className="font-semibold text-foreground">Ctrl+click any card to send it instantly</strong> —
+              no Enter, no second step. Log every PPV the second it sells, and
+              walk away from your shift with a report already done.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -193,7 +202,7 @@ export default function Home() {
                 <ul className="mt-4 max-w-2xl space-y-2 text-sm text-muted">
                   <li>• Two shapes: a single key on its own (like <code className="rounded bg-background px-1 py-0.5 text-xs">1</code>), or Ctrl + a key (like <code className="rounded bg-background px-1 py-0.5 text-xs">Ctrl+1</code>)</li>
                   <li>• Works no matter which page of your library is on screen, as long as the chat box you're typing in is the focused window</li>
-                  <li>• Optional instant-send: have a shortcut paste <em>and</em> hit Enter in one go, same as Ctrl+click</li>
+                  <li>• <strong className="font-semibold text-foreground">Instant Send</strong>: turn it on and a shortcut pastes <em>and</em> hits Enter in one go — same as Ctrl+click, but from a key combo instead of the mouse</li>
                   <li>• No duplicates — trying to reuse a shortcut already claimed by another card is rejected immediately, naming the card that has it</li>
                   <li>• Ctrl-only by design — Alt, Shift, and the Windows key aren&apos;t offered as modifiers, so every shortcut pastes reliably every time instead of occasionally failing</li>
                   <li>• Turn on &quot;Shortcut info&quot; in settings to show a small label right on each card that has one, so you can glance at a page and see every active shortcut at once</li>
