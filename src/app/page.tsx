@@ -176,26 +176,37 @@ export default function Home() {
 
       {/* Keyboard shortcuts */}
       <section className="border-t border-white/5">
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <div className="rounded-2xl card-border bg-background-soft p-8">
-            <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Give any card its own keyboard shortcut</span>
-            <h2 className="mt-2 text-2xl font-bold sm:text-3xl">Not into clicking?</h2>
-            <p className="mt-3 max-w-2xl text-muted">
-              Any snippet card can be assigned its own system-wide keyboard
-              shortcut, so it pastes without touching the mouse at all. As
-              long as the chat window you're typing in has focus, the
-              shortcut fires and lands the text right there — C.H.A.T.
-              itself never needs to be the focused window, and it doesn't
-              matter which page of your library is showing.
-            </p>
-            <ul className="mt-4 max-w-2xl space-y-2 text-sm text-muted">
-              <li>• Two shapes: a single key on its own (like <code className="rounded bg-background px-1 py-0.5 text-xs">1</code>), or Ctrl + a key (like <code className="rounded bg-background px-1 py-0.5 text-xs">Ctrl+1</code>)</li>
-              <li>• Works no matter which page of your library is on screen, as long as the chat box you're typing in is the focused window</li>
-              <li>• Optional instant-send: have a shortcut paste <em>and</em> hit Enter in one go, same as Ctrl+click</li>
-              <li>• No duplicates — trying to reuse a shortcut already claimed by another card is rejected immediately, naming the card that has it</li>
-              <li>• Ctrl-only by design — Alt, Shift, and the Windows key aren&apos;t offered as modifiers, so every shortcut pastes reliably every time instead of occasionally failing</li>
-              <li>• Turn on &quot;Shortcut info&quot; in settings to show a small label right on each card that has one, so you can glance at a page and see every active shortcut at once</li>
-            </ul>
+            <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Give any card its own keyboard shortcut</span>
+                <h2 className="mt-2 text-2xl font-bold sm:text-3xl">Not into clicking?</h2>
+                <p className="mt-3 max-w-2xl text-muted">
+                  Any snippet card can be assigned its own system-wide keyboard
+                  shortcut, so it pastes without touching the mouse at all. As
+                  long as the chat window you're typing in has focus, the
+                  shortcut fires and lands the text right there — C.H.A.T.
+                  itself never needs to be the focused window, and it doesn't
+                  matter which page of your library is showing.
+                </p>
+                <ul className="mt-4 max-w-2xl space-y-2 text-sm text-muted">
+                  <li>• Two shapes: a single key on its own (like <code className="rounded bg-background px-1 py-0.5 text-xs">1</code>), or Ctrl + a key (like <code className="rounded bg-background px-1 py-0.5 text-xs">Ctrl+1</code>)</li>
+                  <li>• Works no matter which page of your library is on screen, as long as the chat box you're typing in is the focused window</li>
+                  <li>• Optional instant-send: have a shortcut paste <em>and</em> hit Enter in one go, same as Ctrl+click</li>
+                  <li>• No duplicates — trying to reuse a shortcut already claimed by another card is rejected immediately, naming the card that has it</li>
+                  <li>• Ctrl-only by design — Alt, Shift, and the Windows key aren&apos;t offered as modifiers, so every shortcut pastes reliably every time instead of occasionally failing</li>
+                  <li>• Turn on &quot;Shortcut info&quot; in settings to show a small label right on each card that has one, so you can glance at a page and see every active shortcut at once</li>
+                </ul>
+              </div>
+              <Image
+                src="/images/shortcut.png"
+                alt="Assigning a keyboard shortcut to a card"
+                width={435}
+                height={538}
+                className="w-full max-w-xs mx-auto rounded-2xl card-border"
+              />
+            </div>
           </div>
         </div>
       </section>
