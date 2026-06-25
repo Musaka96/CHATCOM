@@ -159,12 +159,15 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
           <div className="grid gap-10 sm:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold">Built for the person typing, not the company watching</h2>
+              <h2 className="text-3xl font-bold">Built around your workflow, not someone else's dashboard</h2>
               <p className="mt-4 text-muted">
                 C.H.A.T. doesn't connect to any platform's API, doesn't log your
                 conversations, and doesn't report anything to anyone. It works at
                 the OS level — clipboard and keystrokes — purely to make you
-                faster. It's your tool, on your machine, for your shift.
+                faster. It's your tool, on your machine, for your shift. There's
+                nothing here that breaks platform rules — the quick-hide feature
+                is just there for everyday moments like a screen share, a
+                screenshot, or checking something on the screen underneath.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
@@ -172,7 +175,7 @@ export default function Home() {
                 ["No connection to your chat platform", "Works on top of any app — zero API access"],
                 ["Never steals focus", "Click a card without ever leaving the chat box"],
                 ["Four themes + a mascot", "Including a fully restyled retro 90s mode"],
-                ["Double-Ctrl to vanish", "Instantly hide everything for a screen share"],
+                ["Double-Ctrl to hide", "Clear it off-screen instantly for a screen share or screenshot"],
               ].map(([t, s]) => (
                 <div key={t} className="rounded-xl card-border bg-background-soft p-4">
                   <p className="text-sm font-semibold">{t}</p>
