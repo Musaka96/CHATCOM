@@ -1,7 +1,7 @@
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://chathelper.app";
 
 // Price in whole US cents. Override with PRICE_CENTS in the environment.
-export const PRICE_CENTS = Number(process.env.PRICE_CENTS || process.env.NEXT_PUBLIC_PRICE_CENTS || 4999);
+export const PRICE_CENTS = Number(process.env.PRICE_CENTS || process.env.NEXT_PUBLIC_PRICE_CENTS || 2990);
 
 export const PRODUCT_NAME = "C.H.A.T. — Lifetime License";
 
