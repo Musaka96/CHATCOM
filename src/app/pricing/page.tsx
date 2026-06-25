@@ -26,6 +26,7 @@ export default function PricingPage() {
         <p className="text-sm font-medium text-accent-soft">Lifetime license</p>
         <p className="mt-2 text-5xl font-bold">${priceDisplay}</p>
         <p className="mt-1 text-sm text-muted">one-time, one machine</p>
+        <p className="mt-1 text-xs font-semibold text-muted">Windows only — no Mac or Linux support</p>
         <ul className="mx-auto mt-6 max-w-xs space-y-2 text-left text-sm text-muted">
           <li>• Full snippet library, unlimited pages & cards</li>
           <li>• Live PPV & tip tracking for 2 models</li>

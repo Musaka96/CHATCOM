@@ -54,6 +54,9 @@ export default function Home() {
             <span className="inline-block rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent-soft">
               Built for solo chatters, not call centers
             </span>
+            <span className="ml-2 inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-muted">
+              Windows only
+            </span>
             <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
               Stop alt-tabbing.
               <br />
@@ -79,8 +82,9 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-4 text-xs text-muted">
-              One-time purchase. Locked to your machine. No subscriptions, no API
-              access to your chat platform, no middleman reading your messages.
+              One-time purchase. Locked to your machine. Windows only — no
+              Mac or Linux support. No subscriptions, no API access to your
+              chat platform, no middleman reading your messages.
             </p>
           </div>
           <div className="relative">

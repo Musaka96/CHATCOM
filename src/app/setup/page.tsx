@@ -41,6 +41,9 @@ export default function SetupPage() {
         No accounts to create, no platform to connect. Here's exactly what
         happens after you buy.
       </p>
+      <p className="mt-2 text-sm font-semibold text-accent-soft">
+        Windows only — C.H.A.T. doesn&apos;t run on Mac or Linux.
+      </p>
 
       <ol className="mt-12 space-y-8">
         {steps.map((s, i) => (
@@ -59,6 +62,7 @@ export default function SetupPage() {
       <div className="mt-14 rounded-2xl card-border bg-background-soft p-6">
         <h2 className="text-lg font-bold">A few things worth knowing</h2>
         <ul className="mt-3 space-y-2 text-sm text-muted">
+          <li>• Windows only. There's no Mac or Linux build.</li>
           <li>• One license key = one machine. A code can't be reused on a second computer.</li>
           <li>• Moving to a new PC? Reach out and we'll sort out re-binding your key.</li>
           <li>• All your snippets and sales data are stored locally on your machine, next to the app — never uploaded anywhere.</li>
