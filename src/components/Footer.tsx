@@ -33,8 +33,13 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-10 border-t border-white/5 pt-6 text-xs text-muted">
-          © {new Date().getFullYear()} C.H.A.T. All rights reserved.
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} C.H.A.T. All rights reserved.</span>
+          <div className="flex gap-4">
+            <Link href="/terms" className="hover:text-foreground">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-foreground">Privacy Policy</Link>
+            <Link href="/refunds" className="hover:text-foreground">Refund Policy</Link>
+          </div>
         </div>
       </div>
     </footer>
