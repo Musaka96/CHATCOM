@@ -15,9 +15,7 @@ const features = [
     body:
       "Build out as many pages as you want, drag cards to reorder, pop a page out into its own resizable floating window so your go-to line is always one click away — even across multiple monitors. Cards support full rich text too, so a line copied with custom colors, sizes, or formatting pastes exactly as styled, not as flat plain text. Collapse down to just your favorites whenever you want a cleaner, less cluttered view. Right-click any card to rename it, recolor it, or rewrite its text on the spot.",
     image: "/images/scripts-popout.gif",
-    imgClassName: "max-w-xs mx-auto",
     secondaryVideo: "/images/scripts-edit-card.mp4",
-    secondaryVideoClassName: "max-w-xs mx-auto",
     tag: "Custom scripts & pages",
   },
   {
@@ -145,22 +143,26 @@ export default function Home() {
               </div>
               {f.secondaryVideo ? (
                 <div className="grid grid-cols-2 gap-4">
-                  <Image
-                    src={f.image}
-                    alt={f.title}
-                    width={800}
-                    height={600}
-                    unoptimized={f.image.endsWith(".gif")}
-                    className={`w-full rounded-2xl card-border ${f.imgClassName ?? ""}`}
-                  />
-                  <video
-                    src={f.secondaryVideo}
-                    className={`w-full rounded-2xl card-border ${f.secondaryVideoClassName ?? ""}`}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  />
+                  <div className="h-64 overflow-hidden rounded-2xl card-border sm:h-80">
+                    <Image
+                      src={f.image}
+                      alt={f.title}
+                      width={800}
+                      height={600}
+                      unoptimized={f.image.endsWith(".gif")}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="h-64 overflow-hidden rounded-2xl card-border sm:h-80">
+                    <video
+                      src={f.secondaryVideo}
+                      className="h-full w-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  </div>
                 </div>
               ) : (
                 <Image
