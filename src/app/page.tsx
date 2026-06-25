@@ -19,6 +19,25 @@ const features = [
     tag: "Instant snippet paste",
   },
   {
+    title: "Same scripts, any CRM, zero load time",
+    body: (
+      <>
+        Switch CRMs, get moved to a new platform, or work across two at
+        once — your entire snippet library comes with you exactly as it
+        was, because it never lived inside any CRM to begin with. C.H.A.T.
+        runs as its own overlay on top of whatever you're using, so there&apos;s
+        no platform-specific setup and{" "}
+        <strong className="font-semibold text-foreground">
+          nothing to wait on while a CRM&apos;s own canned-response panel loads
+        </strong>{" "}
+        — your cards are already sitting there, instantly ready, every time.
+      </>
+    ),
+    image: "/images/hero-app.gif",
+    imgClassName: "max-w-md mx-auto",
+    tag: "Works with any CRM",
+  },
+  {
     title: "Make any card yours in a couple clicks",
     body:
       "Right-click any card to rename it, recolor it, or rewrite its text on the spot. Cards support full rich text too, so a line copied with custom colors, sizes, or formatting pastes exactly as styled, not as flat plain text.",
