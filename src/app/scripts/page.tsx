@@ -66,6 +66,25 @@ export default function ScriptsPage() {
       </div>
 
       <div className="mt-16 rounded-2xl card-border bg-background-soft p-8">
+        <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Not into clicking?</span>
+        <h2 className="mt-2 text-2xl font-bold">Give any card its own keyboard shortcut</h2>
+        <p className="mt-3 max-w-2xl text-muted">
+          Any snippet card can be assigned its own system-wide keyboard
+          shortcut, so it pastes without touching the mouse at all — fired
+          from anywhere on your system, no matter which app is focused or
+          which page of your library is even showing.
+        </p>
+        <ul className="mt-4 max-w-2xl space-y-2 text-sm text-muted">
+          <li>• Two shapes: a single key on its own (like <code className="rounded bg-background px-1 py-0.5 text-xs">1</code>), or Ctrl + a key (like <code className="rounded bg-background px-1 py-0.5 text-xs">Ctrl+1</code>)</li>
+          <li>• Works everywhere, regardless of focus or which page is on screen</li>
+          <li>• Optional instant-send: have a shortcut paste <em>and</em> hit Enter in one go, same as Ctrl+click</li>
+          <li>• No duplicates — trying to reuse a shortcut already claimed by another card is rejected immediately, naming the card that has it</li>
+          <li>• Ctrl-only by design — Alt, Shift, and the Windows key aren&apos;t offered as modifiers, so every shortcut pastes reliably every time instead of occasionally failing</li>
+          <li>• Turn on &quot;Shortcut info&quot; in settings to show a small label right on each card that has one, so you can glance at a page and see every active shortcut at once</li>
+        </ul>
+      </div>
+
+      <div className="mt-16 rounded-2xl card-border bg-background-soft p-8">
         <h2 className="text-2xl font-bold">Sharing a script set with someone else</h2>
         <p className="mt-3 max-w-2xl text-muted">
           Built a great page of go-to lines? The <strong>Import Page</strong>{" "}

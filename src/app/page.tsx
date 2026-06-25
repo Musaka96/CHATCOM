@@ -196,9 +196,9 @@ export default function Home() {
               <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Sharing Scripts</span>
               <h3 className="mt-2 text-xl font-bold">Organize, pop out, and share your snippet library</h3>
               <p className="mt-2 text-sm text-muted">
-                Drag cards between pages and windows, then export a single
-                page to share with another chatter without handing over your
-                whole setup.
+                Drag cards between pages and windows, give any card its own
+                keyboard shortcut, then export a single page to share with
+                another chatter without handing over your whole setup.
               </p>
               <span className="mt-4 inline-block text-sm font-semibold text-accent-soft transition group-hover:translate-x-1">
                 See how it works →
