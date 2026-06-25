@@ -156,19 +156,21 @@ export default function Home() {
 
       {/* Keyboard shortcuts */}
       <section className="border-t border-white/5">
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
-          <div className="rounded-2xl card-border bg-background-soft p-8">
-            <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Not into clicking?</span>
-            <h2 className="mt-2 text-2xl font-bold sm:text-3xl">Give any card its own keyboard shortcut</h2>
-            <p className="mt-3 max-w-2xl text-muted">
+        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-32">
+          <div className="rounded-3xl card-border bg-background-soft p-10 sm:p-14">
+            <span className="text-sm font-semibold uppercase tracking-wide text-accent-soft">Not into clicking?</span>
+            <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Give any card its own keyboard shortcut</h2>
+            <p className="mt-5 max-w-3xl text-lg text-muted">
               Any snippet card can be assigned its own system-wide keyboard
-              shortcut, so it pastes without touching the mouse at all — fired
-              from anywhere on your system, no matter which app is focused or
-              which page of your library is even showing.
+              shortcut, so it pastes without touching the mouse at all. As
+              long as the chat window you're typing in has focus, the
+              shortcut fires and lands the text right there — C.H.A.T.
+              itself never needs to be the focused window, and it doesn't
+              matter which page of your library is showing.
             </p>
-            <ul className="mt-4 max-w-2xl space-y-2 text-sm text-muted">
-              <li>• Two shapes: a single key on its own (like <code className="rounded bg-background px-1 py-0.5 text-xs">1</code>), or Ctrl + a key (like <code className="rounded bg-background px-1 py-0.5 text-xs">Ctrl+1</code>)</li>
-              <li>• Works everywhere, regardless of focus or which page is on screen</li>
+            <ul className="mt-6 max-w-3xl space-y-3 text-base text-muted">
+              <li>• Two shapes: a single key on its own (like <code className="rounded bg-background px-1.5 py-0.5 text-sm">1</code>), or Ctrl + a key (like <code className="rounded bg-background px-1.5 py-0.5 text-sm">Ctrl+1</code>)</li>
+              <li>• Works no matter which page of your library is on screen, as long as the chat box you're typing in is the focused window</li>
               <li>• Optional instant-send: have a shortcut paste <em>and</em> hit Enter in one go, same as Ctrl+click</li>
               <li>• No duplicates — trying to reuse a shortcut already claimed by another card is rejected immediately, naming the card that has it</li>
               <li>• Ctrl-only by design — Alt, Shift, and the Windows key aren&apos;t offered as modifiers, so every shortcut pastes reliably every time instead of occasionally failing</li>
