@@ -12,6 +12,7 @@ just export your replacement as the same extension).
 | `feature-snippets.gif` | "Instant snippet paste" feature card — real app screen recording | `src/app/page.tsx` (Features section) |
 | `scripts-popout.gif` | "Custom scripts & pages" feature card on landing page, and the pop-out section on `/scripts` — real app screen recording (multiple pop-out windows) | `src/app/page.tsx`, `src/app/scripts/page.tsx` |
 | `feature-sales.gif` | "Live PPV & tip tracking" feature card — real app screen recording | `src/app/page.tsx` (Features section) |
+| `feature-hotkey.svg` | "Global hotkey price paste" feature card — still a placeholder, swap for a real screenshot/gif of the price popup whenever you have one | `src/app/page.tsx` (Features section) |
 | `feature-report.png` | "One-click shift report" feature card — real app screenshot | `src/app/page.tsx` (Features section) |
 | `mascot.png` | Mascot icon shown in a couple of spots | `src/app/page.tsx`, `src/components/NavBar.tsx` |
 

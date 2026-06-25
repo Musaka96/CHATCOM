@@ -67,6 +67,7 @@ export default function SetupPage() {
           <li>• Moving to a new PC? Reach out and we'll sort out re-binding your key.</li>
           <li>• All your snippets and sales data are stored locally on your machine, next to the app — never uploaded anywhere.</li>
           <li>• Upgrading from an old config? Use the in-app Transfer tool to bring everything over automatically.</li>
+          <li>• The global price hotkey is off by default — turn it on and pick your own key in Settings if you want it.</li>
         </ul>
       </div>
 

@@ -11,6 +11,14 @@ const features = [
     tag: "Instant snippet paste",
   },
   {
+    title: "Type a price anywhere, even where paste is blocked",
+    body:
+      "Hit a global hotkey from anywhere on your system and a row of your preset prices pops up right at your cursor — type the exact number directly, no clipboard involved. That means it works even inside chat platforms that block copy-paste. Fully optional and remappable to any key you want.",
+    image: "/images/feature-hotkey.svg",
+    imgClassName: "max-w-md mx-auto",
+    tag: "Global hotkey price paste",
+  },
+  {
     title: "Your scripts, your way, everywhere you need them",
     body:
       "Build out as many pages as you want, drag cards to reorder, pop a page out into its own resizable floating window so your go-to line is always one click away — even across multiple monitors. Cards support full rich text too, so a line copied with custom colors, sizes, or formatting pastes exactly as styled, not as flat plain text. Collapse down to just your favorites whenever you want a cleaner, less cluttered view.",
