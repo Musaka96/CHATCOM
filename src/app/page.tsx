@@ -63,6 +63,7 @@ const features = [
     image: "/images/scripts-edit-card.mp4",
     isVideo: true,
     imgClassName: "max-w-xs mx-auto",
+    secondaryImage: "/images/scripts-quick-page-maker.png",
     tag: "Custom scripts & pages",
   },
   {
@@ -210,7 +211,25 @@ export default function Home() {
                 <h3 className="mt-2 text-2xl font-bold">{f.title}</h3>
                 <div className="mt-3 text-muted">{f.body}</div>
               </div>
-              {f.isVideo ? (
+              {f.secondaryImage ? (
+                <div className="grid grid-cols-2 items-center gap-4">
+                  <Image
+                    src={f.secondaryImage}
+                    alt={`${f.title} — Quick Page Maker`}
+                    width={610}
+                    height={425}
+                    className="w-full rounded-2xl card-border"
+                  />
+                  <video
+                    src={f.image}
+                    className={`w-full rounded-2xl card-border ${f.imgClassName ?? ""}`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                </div>
+              ) : f.isVideo ? (
                 <video
                   src={f.image}
                   className={`w-full rounded-2xl card-border ${f.imgClassName ?? ""}`}
