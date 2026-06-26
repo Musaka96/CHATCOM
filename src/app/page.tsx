@@ -126,13 +126,13 @@ export default function Home() {
               chat platform, no middleman reading your messages.
             </p>
           </div>
-          <div className="relative">
+          <div className="relative aspect-[16/11] overflow-hidden rounded-2xl card-border">
             <Image
               src="/images/hero-in-context.png"
               alt="C.H.A.T. overlay panel floating over a chat platform"
-              width={1547}
-              height={1069}
-              className="w-full rounded-2xl card-border"
+              fill
+              className="object-cover"
+              style={{ objectPosition: "82% 60%", transform: "scale(1.6)", transformOrigin: "82% 60%" }}
               priority
             />
           </div>
