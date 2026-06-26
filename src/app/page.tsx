@@ -122,7 +122,7 @@ export default function Home() {
             }}
           />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[640px] max-w-6xl items-center px-4 py-14 sm:px-6">
+        <div className="relative z-10 mx-auto flex min-h-[760px] max-w-6xl items-center px-4 py-14 sm:min-h-[820px] sm:px-6">
           <div
             className="max-w-xl"
             style={{
