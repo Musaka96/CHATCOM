@@ -145,8 +145,9 @@ export default function Home() {
               A small, compact panel that floats over any chat platform and
               never steals your keyboard focus — out of your way until the
               moment you need it. <strong className="font-semibold text-foreground">Ctrl+click any card to send it instantly</strong> —
-              no Enter, no second step. Log every PPV the second it sells, and
-              walk away from your shift with a report already done.
+              no Enter, no second step. Load a whole new batch of scripts in
+              minutes, not hours. Log every PPV the second it sells, and walk
+              away from your shift with a report already done.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
