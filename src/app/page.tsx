@@ -104,7 +104,10 @@ export default function Home() {
           />
         </div>
         <div className="relative z-10 mx-auto flex min-h-[640px] max-w-6xl items-center px-4 py-14 sm:px-6">
-          <div className="max-w-xl">
+          <div
+            className="max-w-xl"
+            style={{ textShadow: "0 2px 16px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,1)" }}
+          >
             <span className="inline-block rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent-soft">
               Built for solo chatters, not call centers
             </span>
