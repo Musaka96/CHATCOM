@@ -27,9 +27,10 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="mb-2 text-sm font-semibold text-foreground">Agencies</h4>
+            <h4 className="mb-2 text-sm font-semibold text-foreground">Get in touch</h4>
             <ul className="space-y-2 text-sm text-muted">
               <li><Link href="/teams" className="hover:text-foreground">For Teams</Link></li>
+              <li><Link href="/feature-request" className="hover:text-foreground">Request a Feature</Link></li>
             </ul>
           </div>
         </div>

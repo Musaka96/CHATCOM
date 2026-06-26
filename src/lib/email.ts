@@ -72,3 +72,24 @@ export async function sendTeamsContactEmail(fields: {
     ].join("\n"),
   });
 }
+
+export async function sendFeatureRequestEmail(fields: {
+  email: string;
+  request: string;
+}) {
+  if (!OWNER_EMAIL) {
+    throw new Error("OWNER_EMAIL is not set");
+  }
+  const resend = getResend();
+  await resend.emails.send({
+    from: EMAIL_FROM,
+    to: OWNER_EMAIL,
+    replyTo: fields.email || undefined,
+    subject: "C.H.A.T. feature request",
+    text: [
+      `From: ${fields.email || "(no email provided)"}`,
+      "",
+      fields.request,
+    ].join("\n"),
+  });
+}

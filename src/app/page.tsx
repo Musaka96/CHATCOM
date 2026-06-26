@@ -19,14 +19,15 @@ const features = [
     tag: "Instant snippet paste",
   },
   {
-    title: "Same scripts, any CRM, zero load time",
+    title: "Same scripts, any CRM, any model",
     body: (
       <>
-        Switch CRMs, get moved to a new platform, or work across two at
-        once — your entire snippet library comes with you exactly as it
-        was, because it never lived inside any CRM to begin with. C.H.A.T.
-        runs as its own overlay on top of whatever you're using, so there&apos;s
-        no platform-specific setup and{" "}
+        Switch CRMs, get moved to a new platform, pick up a new model, or
+        work across two at once — your entire snippet library comes with
+        you exactly as it was, because it never lived inside any CRM or any
+        single model's setup to begin with. C.H.A.T. runs as its own overlay
+        on top of whatever you're using, so there&apos;s no platform-specific
+        setup and{" "}
         <strong className="font-semibold text-foreground">
           nothing to wait on while a CRM&apos;s own canned-response panel loads
         </strong>{" "}
@@ -35,7 +36,7 @@ const features = [
     ),
     image: "/images/hero-app.gif",
     imgClassName: "max-w-md mx-auto",
-    tag: "Works with any CRM",
+    tag: "Works with any CRM, any model",
   },
   {
     title: "Make any card yours in a couple clicks",
