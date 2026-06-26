@@ -197,7 +197,33 @@ export default function Home() {
         </div>
 
         <div className="mt-12 flex flex-col gap-16">
-          {features.map((f, i) => (
+          {features.map((f, i) =>
+            f.secondaryImage ? (
+              <div key={f.title} className="grid items-center gap-8 lg:grid-cols-3 lg:gap-8">
+                <Image
+                  src={f.secondaryImage}
+                  alt={`${f.title} — Quick Page Maker`}
+                  width={610}
+                  height={425}
+                  className="w-full rounded-2xl card-border"
+                />
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">
+                    {f.tag}
+                  </span>
+                  <h3 className="mt-2 text-2xl font-bold">{f.title}</h3>
+                  <div className="mt-3 text-muted">{f.body}</div>
+                </div>
+                <video
+                  src={f.image}
+                  className={`w-full rounded-2xl card-border ${f.imgClassName ?? ""}`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              </div>
+            ) : (
             <div
               key={f.title}
               className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-12 ${
@@ -211,25 +237,7 @@ export default function Home() {
                 <h3 className="mt-2 text-2xl font-bold">{f.title}</h3>
                 <div className="mt-3 text-muted">{f.body}</div>
               </div>
-              {f.secondaryImage ? (
-                <div className="grid grid-cols-2 items-center gap-4">
-                  <Image
-                    src={f.secondaryImage}
-                    alt={`${f.title} — Quick Page Maker`}
-                    width={610}
-                    height={425}
-                    className="w-full rounded-2xl card-border"
-                  />
-                  <video
-                    src={f.image}
-                    className={`w-full rounded-2xl card-border ${f.imgClassName ?? ""}`}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  />
-                </div>
-              ) : f.isVideo ? (
+              {f.isVideo ? (
                 <video
                   src={f.image}
                   className={`w-full rounded-2xl card-border ${f.imgClassName ?? ""}`}
@@ -249,7 +257,8 @@ export default function Home() {
                 />
               )}
             </div>
-          ))}
+            )
+          )}
         </div>
       </section>
 
