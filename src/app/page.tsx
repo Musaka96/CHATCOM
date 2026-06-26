@@ -85,55 +85,57 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="mx-auto max-w-6xl px-4 pt-14 pb-16 sm:px-6 sm:pt-20 sm:pb-24">
-        <div className="text-center">
-          <span className="inline-block rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent-soft">
-            Built for solo chatters, not call centers
-          </span>
-          <span className="ml-2 inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-muted">
-            Windows only
-          </span>
-          <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Stop alt-tabbing.
-            <br />
-            <span className="text-accent-soft">Start selling PPVs.</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-muted sm:text-lg">
-            A small, compact panel that floats over any chat platform and
-            never steals your keyboard focus — out of your way until the
-            moment you need it. <strong className="font-semibold text-foreground">Ctrl+click any card to send it instantly</strong> —
-            no Enter, no second step. Log every PPV the second it sells, and
-            walk away from your shift with a report already done.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Link
-              href="/pricing"
-              className="rounded-full bg-accent px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-soft"
-            >
-              Get C.H.A.T. now
-            </Link>
-            <Link
-              href="#features"
-              className="rounded-full border border-white/10 px-6 py-3 text-center text-sm font-semibold text-foreground transition hover:bg-white/5"
-            >
-              See what it does
-            </Link>
-          </div>
-          <p className="mt-4 text-xs text-muted">
-            One-time purchase. Locked to your machine. Windows only — no
-            Mac or Linux support. No subscriptions, no API access to your
-            chat platform, no middleman reading your messages.
-          </p>
-        </div>
-        <div className="relative mt-12">
+      <section className="relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0">
           <Image
             src="/images/hero-in-context.png"
             alt="C.H.A.T. overlay panel floating over a chat platform"
-            width={1547}
-            height={1069}
-            className="mx-auto w-full max-w-4xl rounded-2xl card-border"
+            fill
+            className="object-contain object-right"
             priority
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-background from-50% via-background/85 via-70% to-transparent" />
+        </div>
+        <div className="relative z-10 mx-auto flex min-h-[640px] max-w-6xl items-center px-4 py-14 sm:px-6">
+          <div className="max-w-xl">
+            <span className="inline-block rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent-soft">
+              Built for solo chatters, not call centers
+            </span>
+            <span className="ml-2 inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-muted">
+              Windows only
+            </span>
+            <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              Stop alt-tabbing.
+              <br />
+              <span className="text-accent-soft">Start selling PPVs.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base text-muted sm:text-lg">
+              A small, compact panel that floats over any chat platform and
+              never steals your keyboard focus — out of your way until the
+              moment you need it. <strong className="font-semibold text-foreground">Ctrl+click any card to send it instantly</strong> —
+              no Enter, no second step. Log every PPV the second it sells, and
+              walk away from your shift with a report already done.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/pricing"
+                className="rounded-full bg-accent px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-soft"
+              >
+                Get C.H.A.T. now
+              </Link>
+              <Link
+                href="#features"
+                className="rounded-full border border-white/10 px-6 py-3 text-center text-sm font-semibold text-foreground transition hover:bg-white/5"
+              >
+                See what it does
+              </Link>
+            </div>
+            <p className="mt-4 text-xs text-muted">
+              One-time purchase. Locked to your machine. Windows only — no
+              Mac or Linux support. No subscriptions, no API access to your
+              chat platform, no middleman reading your messages.
+            </p>
+          </div>
         </div>
       </section>
 
