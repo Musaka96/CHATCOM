@@ -23,15 +23,16 @@ const features = [
     body: (
       <>
         Switch CRMs, get moved to a new platform, pick up a new model, or
-        work across two at once — your entire snippet library comes with
-        you exactly as it was, because it never lived inside any CRM or any
+        work across two at once — your entire snippet library comes with you
+        exactly as it was, because it never lived inside any CRM or any
         single model's setup to begin with. C.H.A.T. runs as its own overlay
-        on top of whatever you're using, so there&apos;s no platform-specific
-        setup and{" "}
+        on top of whatever you're using, with{" "}
         <strong className="font-semibold text-foreground">
-          nothing to wait on while a CRM&apos;s own canned-response panel loads
+          zero platform-specific setup
         </strong>{" "}
-        — your cards are already sitting there, instantly ready, every time.
+        — no integration to configure, no re-learning a new canned-response
+        system every time you change tools. It works exactly the same way on
+        every CRM, every account, every model, every time.
       </>
     ),
     image: "/images/hero-app.gif",
@@ -226,18 +227,22 @@ export default function Home() {
                 <h2 className="mt-2 text-2xl font-bold sm:text-3xl">Not into clicking?</h2>
                 <p className="mt-3 max-w-2xl text-muted">
                   Any snippet card can be assigned its own system-wide keyboard
-                  shortcut, so it pastes without touching the mouse at all. As
-                  long as the chat window you're typing in has focus, the
-                  shortcut fires and lands the text right there — C.H.A.T.
-                  itself never needs to be the focused window, and it doesn't
-                  matter which page of your library is showing.
+                  shortcut, so it pastes without touching the mouse at all —{" "}
+                  <strong className="font-semibold text-foreground">
+                    and it fires the same reliable way on every CRM, every
+                    platform, every account
+                  </strong>
+                  . As long as the chat window you're typing in has focus, the
+                  shortcut lands the text right there — C.H.A.T. itself never
+                  needs to be the focused window, and it doesn't matter which
+                  page of your library is showing.
                 </p>
                 <ul className="mt-4 max-w-2xl space-y-2 text-sm text-muted">
                   <li>• Two shapes: a single key on its own (like <code className="rounded bg-background px-1 py-0.5 text-xs">1</code>), or Ctrl + a key (like <code className="rounded bg-background px-1 py-0.5 text-xs">Ctrl+1</code>)</li>
                   <li>• Works no matter which page of your library is on screen, as long as the chat box you're typing in is the focused window</li>
                   <li>• <strong className="font-semibold text-foreground">Instant Send</strong>: turn it on and a shortcut pastes <em>and</em> hits Enter in one go — same as Ctrl+click, but from a key combo instead of the mouse</li>
                   <li>• No duplicates — trying to reuse a shortcut already claimed by another card is rejected immediately, naming the card that has it</li>
-                  <li>• Ctrl-only by design — Alt, Shift, and the Windows key aren&apos;t offered as modifiers, so every shortcut pastes reliably every time instead of occasionally failing</li>
+                  <li>• <strong className="font-semibold text-foreground">Built for reliability, not just speed</strong> — Ctrl-only by design. Alt, Shift, and the Windows key aren&apos;t offered as modifiers because they don&apos;t combine cleanly with every app's own paste shortcuts. The tradeoff is deliberate: a shortcut that fires correctly 100% of the time, every app, every CRM, instead of one that's flashier but fails occasionally</li>
                   <li>• Turn on &quot;Shortcut info&quot; in settings to show a small label right on each card that has one, so you can glance at a page and see every active shortcut at once</li>
                 </ul>
               </div>
