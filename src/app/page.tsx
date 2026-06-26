@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import DemoVideoButton from "@/components/DemoVideoButton";
 
 const features = [
   {
@@ -162,6 +163,7 @@ export default function Home() {
               >
                 See what it does
               </Link>
+              <DemoVideoButton className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-6 py-3 text-center text-sm font-semibold text-foreground transition hover:bg-white/5" />
             </div>
             <p className="mt-4 text-xs text-muted">
               One-time purchase. Locked to your machine. Windows only — no
@@ -436,12 +438,15 @@ export default function Home() {
           One purchase. Locked to your PC. A key sent straight to your inbox.
           Up and running before your next chat comes in.
         </p>
-        <Link
-          href="/pricing"
-          className="mt-8 inline-block rounded-full bg-accent px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-soft"
-        >
-          Get C.H.A.T. now
-        </Link>
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link
+            href="/pricing"
+            className="inline-block rounded-full bg-accent px-8 py-4 text-center text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-soft"
+          >
+            Get C.H.A.T. now
+          </Link>
+          <DemoVideoButton className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-8 py-4 text-center text-sm font-semibold text-foreground transition hover:bg-white/5" />
+        </div>
       </section>
     </div>
   );
