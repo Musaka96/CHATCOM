@@ -128,12 +128,11 @@ export default function Home() {
           </div>
           <div className="relative">
             <Image
-              src="/images/hero-app.gif"
-              alt="C.H.A.T. overlay panel preview"
-              width={765}
-              height={529}
+              src="/images/hero-in-context.png"
+              alt="C.H.A.T. overlay panel floating over a chat platform"
+              width={1547}
+              height={1069}
               className="w-full rounded-2xl card-border"
-              unoptimized
               priority
             />
           </div>

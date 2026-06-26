@@ -8,7 +8,8 @@ just export your replacement as the same extension).
 
 | File | Used for | Code reference |
 |---|---|---|
-| `hero-app.gif` | Big hero shot at the top of the landing page — real app screen recording | `src/app/page.tsx` (Hero section) |
+| `hero-in-context.png` | Big hero shot at the top of the landing page — real screenshot of the app overlaying a chat platform | `src/app/page.tsx` (Hero section) |
+| `hero-app.gif` | "Works with any CRM, any model" feature card — real app screen recording | `src/app/page.tsx` (Features section) |
 | `feature-snippets.gif` | "Instant snippet paste" feature card — real app screen recording | `src/app/page.tsx` (Features section) |
 | `scripts-edit-card.mp4` | "Make any card yours" feature card (editing: rename/recolor/rewrite) — real app screen recording | `src/app/page.tsx` (Features section) |
 | `scripts-popout.gif` | "Your scripts, your way" feature card (resize/reposition/multiple pop-out windows), and the pop-out section on `/scripts` — real app screen recording | `src/app/page.tsx`, `src/app/scripts/page.tsx` |
