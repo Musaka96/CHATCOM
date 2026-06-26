@@ -16,6 +16,7 @@ just export your replacement as the same extension).
 | `feature-sales.gif` | "Live PPV & tip tracking" feature card — real app screen recording | `src/app/page.tsx` (Features section) |
 | `feature-report.png` | "One-click shift report" feature card — real app screenshot | `src/app/page.tsx` (Features section) |
 | `shortcut.png` | "Not into clicking?" keyboard shortcut section — real app screenshot of the shortcut assignment UI | `src/app/page.tsx` |
+| `scripts-quick-page-maker.png` | "Quick Page Maker" section on `/scripts` — real app screenshot of the bulk slot creator | `src/app/scripts/page.tsx` |
 | `mascot.png` | Mascot icon shown in a couple of spots | `src/app/page.tsx`, `src/components/NavBar.tsx` |
 
 All placeholders are simple abstract SVG mockups with a "PLACEHOLDER" watermark
