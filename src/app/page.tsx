@@ -91,7 +91,8 @@ export default function Home() {
             src="/images/hero-in-context.png"
             alt="C.H.A.T. overlay panel floating over a chat platform"
             fill
-            className="object-contain object-right"
+            className="object-contain"
+            style={{ objectPosition: "62% center" }}
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background from-50% via-background/85 via-70% to-transparent" />
