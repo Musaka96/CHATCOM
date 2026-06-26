@@ -100,8 +100,9 @@ export default function Home() {
               <span className="text-accent-soft">Start selling PPVs.</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted sm:text-lg">
-              C.H.A.T. floats over any chat platform and never steals your keyboard
-              focus. <strong className="font-semibold text-foreground">Ctrl+click any card to send it instantly</strong> —
+              A small, compact panel that floats over any chat platform and
+              never steals your keyboard focus — out of your way until the
+              moment you need it. <strong className="font-semibold text-foreground">Ctrl+click any card to send it instantly</strong> —
               no Enter, no second step. Log every PPV the second it sells, and
               walk away from your shift with a report already done.
             </p>
@@ -304,6 +305,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {[
+                ["Small and out of the way", "A compact panel that stays out of your screen — there the instant you need it, gone the rest of the time"],
                 ["No connection to your chat platform", "Works on top of any app — zero API access"],
                 ["Never steals focus", "Click a card without ever leaving the chat box"],
                 ["Four themes + a mascot", "Including a fully restyled retro 90s mode"],
