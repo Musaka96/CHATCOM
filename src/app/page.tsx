@@ -41,8 +41,25 @@ const features = [
   },
   {
     title: "Make any card yours in a couple clicks",
-    body:
-      "Right-click any card to rename it, recolor it, or rewrite its text on the spot. Cards support full rich text too, so a line copied with custom colors, sizes, or formatting pastes exactly as styled, not as flat plain text.",
+    body: (
+      <>
+        <p>
+          Right-click any card to rename it, recolor it, or rewrite its text
+          on the spot. Cards support full rich text too, so a line copied
+          with custom colors, sizes, or formatting pastes exactly as styled,
+          not as flat plain text.
+        </p>
+        <h4 className="mt-5 text-lg font-bold text-foreground">
+          Loading in a whole list of scripts? Skip the one-by-one grind
+        </h4>
+        <p className="mt-2">
+          Quick Page Maker bulk-creates a whole page in one pass — give it a
+          page name and roughly how many cards you want, and it hands you
+          that many ready-to-fill slots at once, with bulk color (Auto
+          Color) to organize the whole batch in a single action.
+        </p>
+      </>
+    ),
     image: "/images/scripts-edit-card.mp4",
     isVideo: true,
     imgClassName: "max-w-xs mx-auto",
@@ -191,7 +208,7 @@ export default function Home() {
                   {f.tag}
                 </span>
                 <h3 className="mt-2 text-2xl font-bold">{f.title}</h3>
-                <p className="mt-3 text-muted">{f.body}</p>
+                <div className="mt-3 text-muted">{f.body}</div>
               </div>
               {f.isVideo ? (
                 <video
