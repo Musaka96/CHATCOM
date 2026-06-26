@@ -95,7 +95,7 @@ export default function Home() {
             style={{ objectPosition: "62% center" }}
             priority
           />
-          <div className="absolute inset-y-0 left-0 w-full max-w-2xl bg-gradient-to-r from-background from-60% to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-full max-w-2xl bg-gradient-to-r from-background via-background via-80% to-transparent" />
         </div>
         <div className="relative z-10 mx-auto flex min-h-[640px] max-w-6xl items-center px-4 py-14 sm:px-6">
           <div className="max-w-xl">
