@@ -10,9 +10,18 @@ function getResend(): Resend {
   return new Resend(apiKey);
 }
 
+// Resend's SDK resolves with { data, error } instead of throwing on failure —
+// without this check, a rejected send (bad "from" domain, invalid recipient,
+// etc.) silently looks like success to the caller.
+function assertSent(result: { data: unknown; error: { message?: string } | null }, context: string) {
+  if (result.error) {
+    throw new Error(`Resend failed to send ${context}: ${result.error.message ?? JSON.stringify(result.error)}`);
+  }
+}
+
 export async function sendLicenseKeyEmail(toEmail: string, licenseCode: string) {
   const resend = getResend();
-  await resend.emails.send({
+  const result = await resend.emails.send({
     from: EMAIL_FROM,
     to: toEmail,
     subject: "Your C.H.A.T. license key",
@@ -33,12 +42,13 @@ export async function sendLicenseKeyEmail(toEmail: string, licenseCode: string) 
       .filter(Boolean)
       .join("\n"),
   });
+  assertSent(result, "license key email");
 }
 
 export async function sendFulfillmentFailureAlert(orderId: string, buyerEmail: string) {
   if (!OWNER_EMAIL) return;
   const resend = getResend();
-  await resend.emails.send({
+  const result = await resend.emails.send({
     from: EMAIL_FROM,
     to: OWNER_EMAIL,
     subject: "C.H.A.T. — order fulfillment failed",
@@ -47,6 +57,7 @@ export async function sendFulfillmentFailureAlert(orderId: string, buyerEmail: s
       "Check the activation server is reachable, then use \"Retry fulfill\" in /admin.",
     ].join("\n"),
   });
+  assertSent(result, "fulfillment failure alert");
 }
 
 export async function sendTeamsContactEmail(fields: {
@@ -59,7 +70,7 @@ export async function sendTeamsContactEmail(fields: {
     throw new Error("OWNER_EMAIL is not set");
   }
   const resend = getResend();
-  await resend.emails.send({
+  const result = await resend.emails.send({
     from: EMAIL_FROM,
     to: OWNER_EMAIL,
     replyTo: fields.email,
@@ -72,6 +83,7 @@ export async function sendTeamsContactEmail(fields: {
       fields.message || "(no message)",
     ].join("\n"),
   });
+  assertSent(result, "teams contact email");
 }
 
 export async function sendFeatureRequestEmail(fields: {
@@ -82,7 +94,7 @@ export async function sendFeatureRequestEmail(fields: {
     throw new Error("OWNER_EMAIL is not set");
   }
   const resend = getResend();
-  await resend.emails.send({
+  const result = await resend.emails.send({
     from: EMAIL_FROM,
     to: OWNER_EMAIL,
     replyTo: fields.email || undefined,
@@ -93,4 +105,5 @@ export async function sendFeatureRequestEmail(fields: {
       fields.request,
     ].join("\n"),
   });
+  assertSent(result, "feature request email");
 }
