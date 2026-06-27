@@ -7,11 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum LicenseKeyStatus {
-  UNUSED
-  ASSIGNED
-}
-
 enum OrderStatus {
   PENDING
   PAID
@@ -19,22 +14,13 @@ enum OrderStatus {
   FAILED
 }
 
-model LicenseKey {
-  id            String           @id @default(cuid())
-  encryptedKey  String
-  status        LicenseKeyStatus @default(UNUSED)
-  assignedAt    DateTime?
-  createdAt     DateTime         @default(now())
-  order         Order?
-}
-
 model Order {
-  id                  String      @id @default(cuid())
-  buyerEmail          String
-  paddleTransactionId String?     @unique
-  licenseKeyId        String?     @unique
-  licenseKey          LicenseKey? @relation(fields: [licenseKeyId], references: [id])
-  status              OrderStatus @default(PENDING)
-  createdAt           DateTime    @default(now())
-  updatedAt           DateTime    @updatedAt
+  id                    String      @id @default(cuid())
+  buyerEmail            String
+  paddleTransactionId   String?     @unique
+  encryptedLicenseCode  String?
+  amountCents           Int?
+  status                OrderStatus @default(PENDING)
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
 }

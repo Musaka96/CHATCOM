@@ -11,7 +11,6 @@ export async function GET(req: NextRequest) {
 
   const orders = await prisma.order.findMany({
     orderBy: { createdAt: "desc" },
-    include: { licenseKey: true },
     take: 200,
   });
 
@@ -20,7 +19,8 @@ export async function GET(req: NextRequest) {
     buyerEmail: o.buyerEmail,
     status: o.status,
     createdAt: o.createdAt,
-    maskedKey: o.licenseKey ? maskKey(decryptKey(o.licenseKey.encryptedKey)) : null,
+    amountCents: o.amountCents,
+    maskedCode: o.encryptedLicenseCode ? maskKey(decryptKey(o.encryptedLicenseCode)) : null,
   }));
 
   return NextResponse.json({ orders: result });

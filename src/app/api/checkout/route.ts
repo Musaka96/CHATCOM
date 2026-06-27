@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { PRICE_CENTS } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
@@ -18,6 +19,7 @@ export async function POST(req: NextRequest) {
       data: {
         buyerEmail: email,
         status: "PENDING",
+        amountCents: PRICE_CENTS,
       },
     });
 

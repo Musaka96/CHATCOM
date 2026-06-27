@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { EMAIL_FROM, APP_DOWNLOAD_URL, OWNER_EMAIL, SITE_URL } from "./config";
+import { formatCodeForDisplay } from "./activation";
 
 function getResend(): Resend {
   const apiKey = process.env.RESEND_API_KEY;
@@ -9,7 +10,7 @@ function getResend(): Resend {
   return new Resend(apiKey);
 }
 
-export async function sendLicenseKeyEmail(toEmail: string, licenseKey: string) {
+export async function sendLicenseKeyEmail(toEmail: string, licenseCode: string) {
   const resend = getResend();
   await resend.emails.send({
     from: EMAIL_FROM,
@@ -18,7 +19,7 @@ export async function sendLicenseKeyEmail(toEmail: string, licenseKey: string) {
     text: [
       "Thanks for picking up C.H.A.T.!",
       "",
-      `Your license key: ${licenseKey}`,
+      `Your license key: ${formatCodeForDisplay(licenseCode)}`,
       "",
       APP_DOWNLOAD_URL ? `Download the app: ${APP_DOWNLOAD_URL}` : "",
       "",
@@ -34,16 +35,16 @@ export async function sendLicenseKeyEmail(toEmail: string, licenseKey: string) {
   });
 }
 
-export async function sendKeyShortageAlert(orderId: string, buyerEmail: string) {
+export async function sendFulfillmentFailureAlert(orderId: string, buyerEmail: string) {
   if (!OWNER_EMAIL) return;
   const resend = getResend();
   await resend.emails.send({
     from: EMAIL_FROM,
     to: OWNER_EMAIL,
-    subject: "C.H.A.T. — out of license keys",
+    subject: "C.H.A.T. — order fulfillment failed",
     text: [
-      `Order ${orderId} from ${buyerEmail} was paid but no unused license keys are left.`,
-      "Add more keys in /admin, then manually fulfill this order.",
+      `Order ${orderId} from ${buyerEmail} was paid but generating an activation code failed.`,
+      "Check the activation server is reachable, then use \"Retry fulfill\" in /admin.",
     ].join("\n"),
   });
 }

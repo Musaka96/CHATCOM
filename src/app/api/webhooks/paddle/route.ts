@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
-import { decryptKey } from "@/lib/crypto";
-import { sendLicenseKeyEmail, sendKeyShortageAlert } from "@/lib/email";
+import { encryptKey } from "@/lib/crypto";
+import { generateActivationCode } from "@/lib/activation";
+import { sendLicenseKeyEmail, sendFulfillmentFailureAlert } from "@/lib/email";
 import { verifyPaddleSignature } from "@/lib/paddle";
 
 export const dynamic = "force-dynamic";
@@ -18,45 +19,31 @@ async function fulfillOrder(orderId: string, paddleTransactionId: string) {
 
   const buyerEmail = existing.buyerEmail;
 
-  const claimedKey = await prisma.$transaction(async (tx) => {
-    const key = await tx.licenseKey.findFirst({ where: { status: "UNUSED" } });
-    if (!key) return null;
-
-    await tx.licenseKey.update({
-      where: { id: key.id },
-      data: { status: "ASSIGNED", assignedAt: new Date() },
-    });
-
-    await tx.order.update({
-      where: { id: existing.id },
-      data: {
-        status: "PAID",
-        licenseKeyId: key.id,
-        paddleTransactionId,
-      },
-    });
-
-    return key;
+  await prisma.order.update({
+    where: { id: existing.id },
+    data: { status: "PAID", paddleTransactionId },
   });
 
-  if (!claimedKey) {
+  let code: string;
+  try {
+    code = await generateActivationCode();
+  } catch (err) {
+    console.error("activation code generation failed", err);
     await prisma.order.update({
       where: { id: existing.id },
-      data: { status: "FAILED", paddleTransactionId },
+      data: { status: "FAILED" },
     });
-    await sendKeyShortageAlert(existing.id, buyerEmail).catch((e) =>
-      console.error("failed to send shortage alert", e)
+    await sendFulfillmentFailureAlert(existing.id, buyerEmail).catch((e) =>
+      console.error("failed to send fulfillment failure alert", e)
     );
     return;
   }
 
-  const plaintextKey = decryptKey(claimedKey.encryptedKey);
-
-  await sendLicenseKeyEmail(buyerEmail, plaintextKey);
+  await sendLicenseKeyEmail(buyerEmail, code);
 
   await prisma.order.update({
     where: { id: existing.id },
-    data: { status: "FULFILLED" },
+    data: { status: "FULFILLED", encryptedLicenseCode: encryptKey(code) },
   });
 }
 
