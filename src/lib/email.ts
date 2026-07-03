@@ -21,6 +21,13 @@ function assertSent(result: { data: unknown; error: { message?: string } | null 
 
 export async function sendLicenseKeyEmail(toEmail: string, licenseCode: string) {
   const resend = getResend();
+  const contact = OWNER_EMAIL ? ` or email ${OWNER_EMAIL}` : "";
+  // APP_DOWNLOAD_URL should always be set in production; if it isn't, we still
+  // deliver the key the customer paid for and tell them how to reach us for the
+  // download (and separately alert the owner — see sendMissingDownloadUrlAlert).
+  const downloadLine = APP_DOWNLOAD_URL
+    ? `Download the app: ${APP_DOWNLOAD_URL}`
+    : `Your download link isn't showing up here — sorry about that! Just reply to this email${contact} and we'll send you the installer right away.`;
   const result = await resend.emails.send({
     from: EMAIL_FROM,
     to: toEmail,
@@ -30,7 +37,7 @@ export async function sendLicenseKeyEmail(toEmail: string, licenseCode: string) 
       "",
       `Your license key: ${formatCodeForDisplay(licenseCode)}`,
       "",
-      APP_DOWNLOAD_URL ? `Download the app: ${APP_DOWNLOAD_URL}` : "",
+      downloadLine,
       "",
       `Setup walkthrough: ${SITE_URL}/setup`,
       "",
@@ -43,6 +50,28 @@ export async function sendLicenseKeyEmail(toEmail: string, licenseCode: string) 
       .join("\n"),
   });
   assertSent(result, "license key email");
+}
+
+// Fires when an order is fulfilled but APP_DOWNLOAD_URL is not configured, so the
+// customer got their key without a download link. Lets the owner send the link
+// manually and fix the config before the next sale.
+export async function sendMissingDownloadUrlAlert(orderId: string, buyerEmail: string) {
+  if (!OWNER_EMAIL) return;
+  const resend = getResend();
+  const result = await resend.emails.send({
+    from: EMAIL_FROM,
+    to: OWNER_EMAIL,
+    subject: "C.H.A.T. — ACTION NEEDED: paid order sent without a download link",
+    text: [
+      `Order ${orderId} (${buyerEmail}) was paid and the license key was emailed,`,
+      "but APP_DOWNLOAD_URL is not set, so the email went out WITHOUT a download link.",
+      "",
+      "Do this now:",
+      `1. Email ${buyerEmail} the installer download link manually.`,
+      "2. Set APP_DOWNLOAD_URL in the environment so future orders include it automatically.",
+    ].join("\n"),
+  });
+  assertSent(result, "missing download url alert");
 }
 
 export async function sendFulfillmentFailureAlert(orderId: string, buyerEmail: string) {

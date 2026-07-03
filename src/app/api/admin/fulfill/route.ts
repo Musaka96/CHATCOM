@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { encryptKey } from "@/lib/crypto";
 import { generateActivationCode } from "@/lib/activation";
-import { sendLicenseKeyEmail } from "@/lib/email";
+import { sendLicenseKeyEmail, sendMissingDownloadUrlAlert } from "@/lib/email";
 import { requireAdmin } from "@/lib/require-admin";
+import { APP_DOWNLOAD_URL } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
@@ -37,6 +38,14 @@ export async function POST(req: NextRequest) {
   }
 
   await sendLicenseKeyEmail(order.buyerEmail, code);
+
+  if (!APP_DOWNLOAD_URL) {
+    console.error("manual fulfill: APP_DOWNLOAD_URL not set — key sent without a download link", order.id);
+    await sendMissingDownloadUrlAlert(order.id, order.buyerEmail).catch((e) =>
+      console.error("failed to send missing download url alert", e)
+    );
+  }
+
   await prisma.order.update({
     where: { id: order.id },
     data: { status: "FULFILLED", encryptedLicenseCode: encryptKey(code) },

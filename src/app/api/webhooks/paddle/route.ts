@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { encryptKey } from "@/lib/crypto";
 import { generateActivationCode } from "@/lib/activation";
-import { sendLicenseKeyEmail, sendFulfillmentFailureAlert } from "@/lib/email";
+import { sendLicenseKeyEmail, sendFulfillmentFailureAlert, sendMissingDownloadUrlAlert } from "@/lib/email";
 import { verifyPaddleSignature } from "@/lib/paddle";
+import { APP_DOWNLOAD_URL } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
@@ -40,6 +41,13 @@ async function fulfillOrder(orderId: string, paddleTransactionId: string) {
   }
 
   await sendLicenseKeyEmail(buyerEmail, code);
+
+  if (!APP_DOWNLOAD_URL) {
+    console.error("fulfillment: APP_DOWNLOAD_URL not set — key sent without a download link", existing.id);
+    await sendMissingDownloadUrlAlert(existing.id, buyerEmail).catch((e) =>
+      console.error("failed to send missing download url alert", e)
+    );
+  }
 
   await prisma.order.update({
     where: { id: existing.id },

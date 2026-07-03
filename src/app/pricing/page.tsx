@@ -29,9 +29,11 @@ export default function PricingPage() {
         <p className="mt-1 text-sm text-muted">one-time payment, no subscription — one machine</p>
         <p className="mt-1 text-xs font-semibold text-muted">Windows only — no Mac or Linux support</p>
         <p className="mx-auto mt-6 max-w-sm text-sm text-muted">
-          C.H.A.T. is a desktop app for Windows. Enter your email and complete
-          checkout — your license key is emailed to you right after payment, and
-          you download the app and activate it with that key.
+          C.H.A.T. is a desktop app for Windows. Right after payment, we email
+          you your <span className="font-semibold text-foreground">license key</span> and a{" "}
+          <span className="font-semibold text-foreground">download link</span> for
+          the installer — download the app, then paste your key on first launch
+          to activate it.
         </p>
         <p className="mx-auto mt-3 max-w-sm text-sm text-muted">
           Want the full breakdown of what's inside?{" "}
