@@ -23,9 +23,9 @@ export default function PricingPage() {
       </p>
 
       <div className="mt-10 rounded-2xl card-border bg-background-soft p-8 text-center">
-        <p className="text-sm font-medium text-accent-soft">Lifetime license</p>
+        <p className="text-sm font-medium text-accent-soft">C.H.A.T. — Lifetime License</p>
         <p className="mt-2 text-5xl font-bold">${priceDisplay}</p>
-        <p className="mt-1 text-sm text-muted">one-time, one machine</p>
+        <p className="mt-1 text-sm text-muted">one-time payment, no subscription — one machine</p>
         <p className="mt-1 text-xs font-semibold text-muted">Windows only — no Mac or Linux support</p>
         <ul className="mx-auto mt-6 max-w-xs space-y-2 text-left text-sm text-muted">
           <li>• Full snippet library, unlimited pages & cards</li>
@@ -35,6 +35,9 @@ export default function PricingPage() {
           <li>• All 4 themes, sound packs, mascot</li>
         </ul>
         <CheckoutForm />
+        <p className="mt-4 text-xs text-muted">
+          Taxes may apply and will be calculated at checkout.
+        </p>
       </div>
     </div>
   );
