@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PRICE_CENTS } from "@/lib/config";
 import CheckoutForm from "@/components/CheckoutForm";
 
@@ -27,13 +28,18 @@ export default function PricingPage() {
         <p className="mt-2 text-5xl font-bold">${priceDisplay}</p>
         <p className="mt-1 text-sm text-muted">one-time payment, no subscription — one machine</p>
         <p className="mt-1 text-xs font-semibold text-muted">Windows only — no Mac or Linux support</p>
-        <ul className="mx-auto mt-6 max-w-xs space-y-2 text-left text-sm text-muted">
-          <li>• Full snippet library, unlimited pages & cards</li>
-          <li>• Live PPV & tip tracking for 2 models</li>
-          <li>• One-click shift reports</li>
-          <li>• CLS Notifier, clock & interval alarm</li>
-          <li>• All 4 themes, sound packs, mascot</li>
-        </ul>
+        <p className="mx-auto mt-6 max-w-sm text-sm text-muted">
+          C.H.A.T. is a desktop app for Windows. Enter your email and complete
+          checkout — your license key is emailed to you right after payment, and
+          you download the app and activate it with that key.
+        </p>
+        <p className="mx-auto mt-3 max-w-sm text-sm text-muted">
+          Want the full breakdown of what's inside?{" "}
+          <Link href="/features" className="font-semibold text-accent-soft underline hover:text-accent">
+            See every feature
+          </Link>
+          .
+        </p>
         <CheckoutForm />
         <p className="mt-4 text-xs text-muted">
           Taxes may apply and will be calculated at checkout.
