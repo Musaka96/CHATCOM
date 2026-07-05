@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { PRICE_DISPLAY } from "@/lib/config";
 
 const links = [
   { href: "/features", label: "Features" },
@@ -10,6 +11,7 @@ const links = [
   { href: "/scripts", label: "Sharing Scripts" },
   { href: "/setup", label: "Setup" },
   { href: "/teams", label: "For Teams" },
+  { href: "/pricing", label: "Pricing" },
 ];
 
 export default function NavBar() {
@@ -37,7 +39,7 @@ export default function NavBar() {
             href="/pricing"
             className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-soft"
           >
-            Get C.H.A.T.
+            Get C.H.A.T. — {PRICE_DISPLAY}
           </Link>
         </div>
 
@@ -74,7 +76,7 @@ export default function NavBar() {
               className="mt-1 rounded-full bg-accent px-4 py-3 text-center text-base font-medium text-white"
               onClick={() => setOpen(false)}
             >
-              Get C.H.A.T.
+              Get C.H.A.T. — {PRICE_DISPLAY}
             </Link>
           </div>
         </div>

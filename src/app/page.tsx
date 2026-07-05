@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import DemoVideoButton from "@/components/DemoVideoButton";
+import { PRICE_DISPLAY } from "@/lib/config";
 
 const features = [
   {
@@ -155,7 +156,7 @@ export default function Home() {
                 href="/pricing"
                 className="rounded-full bg-accent px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-soft"
               >
-                Get C.H.A.T. now
+                Get C.H.A.T. — {PRICE_DISPLAY}
               </Link>
               <Link
                 href="#features"
@@ -166,9 +167,10 @@ export default function Home() {
               <DemoVideoButton className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-6 py-3 text-center text-sm font-semibold text-foreground transition hover:bg-white/5" />
             </div>
             <p className="mt-4 text-xs text-muted">
-              One-time purchase. Locked to your machine. Windows only — no
-              Mac or Linux support. No subscriptions, no API access to your
-              chat platform, no middleman reading your messages.
+              <strong className="font-semibold text-foreground">{PRICE_DISPLAY} one-time</strong> — no subscriptions.
+              Locked to your machine. Windows only — no Mac or Linux support.
+              No API access to your chat platform, no middleman reading your
+              messages.
             </p>
           </div>
         </div>
@@ -431,6 +433,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing */}
+      <section id="pricing" className="border-t border-white/5">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Pricing</span>
+            <h2 className="mt-2 text-3xl font-bold sm:text-4xl">One price. Everything included.</h2>
+            <p className="mt-3 text-muted">
+              No tiers, no subscription, no upsells. Buy it once and it&apos;s
+              yours.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-md rounded-2xl card-border bg-background-soft p-8 text-center">
+            <p className="text-sm font-medium text-accent-soft">C.H.A.T. — Lifetime License</p>
+            <p className="mt-2 text-5xl font-bold">{PRICE_DISPLAY}</p>
+            <p className="mt-1 text-sm text-muted">one-time payment, no subscription — one machine</p>
+            <p className="mt-1 text-xs font-semibold text-muted">Windows only — no Mac or Linux support</p>
+            <ul className="mx-auto mt-6 max-w-xs space-y-2 text-left text-sm text-muted">
+              <li>• Full snippet library — unlimited pages &amp; cards</li>
+              <li>• Live PPV &amp; tip tracking with one-click shift reports</li>
+              <li>• Countdown reminders, clock &amp; repeating alarm</li>
+              <li>• 4 themes, sound packs, and the mascot</li>
+              <li>• License key emailed instantly, plus a download link</li>
+            </ul>
+            <Link
+              href="/pricing"
+              className="mt-8 inline-block w-full rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-soft"
+            >
+              Get C.H.A.T. — {PRICE_DISPLAY}
+            </Link>
+            <p className="mt-4 text-xs text-muted">
+              Taxes may apply and will be calculated at checkout.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-24">
         <h2 className="text-3xl font-bold sm:text-4xl">Your shift starts faster tonight.</h2>
@@ -443,7 +482,7 @@ export default function Home() {
             href="/pricing"
             className="inline-block rounded-full bg-accent px-8 py-4 text-center text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-soft"
           >
-            Get C.H.A.T. now
+            Get C.H.A.T. — {PRICE_DISPLAY}
           </Link>
           <DemoVideoButton className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-8 py-4 text-center text-sm font-semibold text-foreground transition hover:bg-white/5" />
         </div>

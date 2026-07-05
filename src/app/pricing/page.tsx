@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PRICE_CENTS } from "@/lib/config";
+import { PRICE_DISPLAY } from "@/lib/config";
 import CheckoutForm from "@/components/CheckoutForm";
 
 export const metadata: Metadata = {
@@ -10,8 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
-  const priceDisplay = (PRICE_CENTS / 100).toFixed(2).replace(/\.00$/, "");
-
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
       <span className="text-xs font-semibold uppercase tracking-wide text-accent-soft">Pricing</span>
@@ -25,7 +23,7 @@ export default function PricingPage() {
 
       <div className="mt-10 rounded-2xl card-border bg-background-soft p-8 text-center">
         <p className="text-sm font-medium text-accent-soft">C.H.A.T. — Lifetime License</p>
-        <p className="mt-2 text-5xl font-bold">${priceDisplay}</p>
+        <p className="mt-2 text-5xl font-bold">{PRICE_DISPLAY}</p>
         <p className="mt-1 text-sm text-muted">one-time payment, no subscription — one machine</p>
         <p className="mt-1 text-xs font-semibold text-muted">Windows only — no Mac or Linux support</p>
         <p className="mx-auto mt-6 max-w-sm text-sm text-muted">
