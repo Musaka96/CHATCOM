@@ -47,9 +47,9 @@ const features = [
       <>
         <p>
           Right-click any card to rename it, recolor it, or rewrite its text
-          on the spot. Cards support full rich text too, so a line copied
-          with custom colors, sizes, or formatting pastes exactly as styled,
-          not as flat plain text.
+          on the spot. Cards support full rich text and emoji too, so a line
+          copied with custom colors, sizes, formatting, or emoji pastes exactly
+          as styled, not as flat plain text.
         </p>
         <h4 className="mt-5 text-lg font-bold text-foreground">
           Loading in a whole list of scripts? Skip the one-by-one grind
@@ -378,6 +378,7 @@ export default function Home() {
                 ["No connection to your chat platform", "Works on top of any app — zero API access"],
                 ["Never steals focus", "Click a card without ever leaving the chat box"],
                 ["Four themes + a mascot", "Including a fully restyled retro 90s mode"],
+                ["Up and running in minutes", "A guided first-run tour walks you through the essentials, with a ready-made starter setup one click away"],
                 ["Double-Ctrl to hide", "Clear it off-screen instantly for a screen share or screenshot"],
               ].map(([t, s]) => (
                 <div key={t} className="rounded-xl card-border bg-background-soft p-4">
@@ -455,6 +456,7 @@ export default function Home() {
               <li>• Live PPV &amp; tip tracking with one-click shift reports</li>
               <li>• Countdown reminders, clock &amp; repeating alarm</li>
               <li>• 4 themes, sound packs, and the mascot</li>
+              <li>• Guided first-run tour + ready-made starter setup</li>
               <li>• License key emailed instantly, plus a download link</li>
             </ul>
             <Link
@@ -475,7 +477,8 @@ export default function Home() {
         <h2 className="text-3xl font-bold sm:text-4xl">Your shift starts faster tonight.</h2>
         <p className="mx-auto mt-4 max-w-xl text-muted">
           One purchase. Locked to your PC. A key sent straight to your inbox.
-          Up and running before your next chat comes in.
+          A guided first-run tour has you up and running before your next chat
+          comes in.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link

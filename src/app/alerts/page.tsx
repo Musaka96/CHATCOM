@@ -32,7 +32,7 @@ export default function AlertsPage() {
           />
           <h2 className="text-xl font-bold">Never forget to send that &quot;live&quot; PPV</h2>
           <p className="mt-3 text-sm text-muted">
-            Pick a duration of roughly 3–5 minutes, give it an optional label,
+            Pick a duration anywhere from 1 to 10 minutes, give it an optional label,
             and a popup reminds you the instant it's done. Start as many as
             you want — a new one never cancels or disturbs ones already
             counting down. Run five at once if you need to.

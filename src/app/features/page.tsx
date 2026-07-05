@@ -17,7 +17,7 @@ const sections: Section[] = [
       "Card = name + custom color + text body",
       "Click card → paste into focused app; Ctrl+click → paste + Enter",
       "Auto-Send toggle: inverts it (plain click sends, Ctrl = paste only)",
-      "Rich-text (CF_HTML) preserved on paste, plain-text fallback",
+      "Rich text and emoji preserved on paste, with a plain-text fallback",
       "Drag cards to reorder, onto another tab to move, across separate windows to copy",
       "Right-click card → edit name/color/text, duplicate, delete",
       "48-swatch color palette + live hex preview",
@@ -43,7 +43,7 @@ const sections: Section[] = [
       "Shared preset amount buttons + shared preset tip buttons (Ctrl = tip mode)",
       "✎ Custom Amount / Custom Tip entry (any one-off value)",
       "Per-model \"sales to other chatters\" note",
-      "Session goal (wager) with proportional progress bar across all models",
+      "Session goal (wager) with a progress bar across all models — turns gold as you approach, cyan once you pass it",
       "Milestone confetti every $1,000; bigger celebration on hitting the goal",
       "Sound cue per sale/tip/goal",
       "Report editor: add/remove individual sale/tip line items per model",
@@ -86,6 +86,13 @@ const sections: Section[] = [
       "Ctrl double-press → hide/show everything instantly",
       "Auto Collapse (right-click): taskbar-style ducking — main → wager/sales bar, float → header; pops out on hover; per-window, persisted",
       "Wheel-scroll works anywhere on the window",
+    ],
+  },
+  {
+    title: "Guided onboarding",
+    items: [
+      "First-run spotlight tour points to each key action one at a time — send a message, instant-send, edit a card, log a sale, log a tip, open settings — and lets you try each as it's shown",
+      "Ready-made welcome setup imports in one click: example models, sales and a goal, a normal snippet page, an emoji & rich-text page, and a full in-app tutorial page",
     ],
   },
   {

@@ -24,6 +24,11 @@ const steps = [
       "On first launch you'll see an activation screen. Enter your license key — it's validated against the activation server and cryptographically locked to that specific machine.",
   },
   {
+    title: "Learn it in a couple minutes with the guided tour",
+    body:
+      "A first-run spotlight tour walks you through the essentials one at a time — sending a message, instant-send, editing a card, logging a sale and a tip, opening settings — and lets you try each as it's shown. A ready-made starter setup (example models, a session goal, snippet pages, an emoji & rich-text page, and a full tutorial page) is one click away, so you're never staring at a blank slate.",
+  },
+  {
     title: "You're set — no repeated checks",
     body:
       "Once activated, the license check is verified locally afterward using a signed certificate, so the app doesn't need to phone home every time you open it.",

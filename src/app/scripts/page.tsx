@@ -114,7 +114,7 @@ export default function ScriptsPage() {
             Snippets live on pages (tabs across the top), each holding any
             number of cards. Each card has a name, a custom color from a
             48-swatch palette, and a body of text — including rich formatting
-            if that's how you originally copied it.
+            and emoji if that's how you originally copied it.
           </p>
           <ul className="mt-4 space-y-2 text-sm text-muted">
             <li>• Drag cards to reorder within a page</li>
