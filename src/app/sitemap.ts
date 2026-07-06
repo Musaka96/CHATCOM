@@ -5,6 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://chathelper.app";
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
+    "/features",
     "/alerts",
     "/scripts",
     "/setup",
